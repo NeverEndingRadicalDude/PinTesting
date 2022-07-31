@@ -19,6 +19,7 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import com.pi4j.io.gpio.event.PinEventType;
 import java.util.Scanner;
 import java.io.*;
+import java.util.NoSuchElementException;
 public class LEDtest {
  public static void readTxt(String path, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
     int count = 0;
