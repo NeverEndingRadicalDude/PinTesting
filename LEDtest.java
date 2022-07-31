@@ -22,6 +22,7 @@ import java.io.*;
 public class LEDtest {
  public static void readTxt(String path, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
     int count = 0;
+    File file;
     try {
       File file = new File(path);
     } catch(FileNotFoundException e) {
