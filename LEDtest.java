@@ -20,7 +20,7 @@ import com.pi4j.io.gpio.event.PinEventType;
 import java.util.Scanner;
 import java.io.*;
 public class LEDtest {
- public static void readTxt(String path, GPIOPinDigitalOutput pin1, GPIOPinDigitalOutput pin2, GPIOPinDigitalOutput pin3, GPIOPinDigitalOutput pin4, GPIOPinDigitalOutput pin5, GPIOPinDigitalOutput pin6, GPIOPinDigitalOutput pin7, GPIOPinDigitalOutput pin8, GPIOPinDigitalOutput pin9, GPIOPinDigitalOutput pin10) throws InterruptedException {
+ public static void readTxt(String path, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
     int count = 0;
     File file = new File(path);
     Scanner input = new Scanner(file);
@@ -38,7 +38,7 @@ public class LEDtest {
       }
     }
   }
- public static void updatePins(String input, GPIOPinDigitalOutput pin1, GPIOPinDigitalOutput pin2, GPIOPinDigitalOutput pin3, GPIOPinDigitalOutput pin4, GPIOPinDigitalOutput pin5, GPIOPinDigitalOutput pin6, GPIOPinDigitalOutput pin7, GPIOPinDigitalOutput pin8, GPIOPinDigitalOutput pin9, GPIOPinDigitalOutput pin10) throws InterruptedException {
+ public static void updatePins(String input, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
   int in = input.parseInt();
   if (in / 1000000000 == 1) {
    pin1.high();
