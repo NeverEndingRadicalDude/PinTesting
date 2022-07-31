@@ -124,7 +124,7 @@ public class Main {
    } else {
     try {
      updatePins(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
-   } catch(InteruptedException) {
+   } catch(InteruptedException e) {
      readTxt(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
     }
    }
