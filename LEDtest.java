@@ -33,6 +33,7 @@ public class LEDtest {
     }
     boolean finish = false;
     String line;
+    int time;
     while (finish == false) {
       try {
       line = input.nextLine();
@@ -40,12 +41,20 @@ public class LEDtest {
        finish = false;
        return;
       }
-      if (count == 0) {
-        updatePins(line, pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
-        count = 1;
-      } else if (count == 1) {
-        Thread.sleep(Integer.parseInt(line));
-        count = 0;
+      try {
+      time = input.nextInt();
+      } catch(NoSuchElementException e) {
+       finish = false;
+       return;
+      }
+      long start = System.nanoTime();
+      updatePins(line, pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
+      boolean check = false;
+      while (check = false) {
+       if (System.nanoTime - start >= time) {
+        check = true;
+        updatePins("0000000000", pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
+       }
       }
     }
   }
