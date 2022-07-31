@@ -30,6 +30,24 @@ public class Main {
  public GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08);
  public GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09);
  public GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10);
+ public static readTxt(String path) throws InterruptedException {
+    int count = 0;
+    File file = new File(path);
+    Scanner input = new Scanner(file);
+    boolean finish = false;
+    while (finish == false) {
+      String line = input.nextLine();
+      if (line.compareTo("") == 0) {
+        finish = true;
+      } else if (count == 0) {
+        Main.updatePins(line.parseInt());
+        count = 1;
+      } else if (count == 1) {
+        Thread.sleep(line.parseInt());
+        count = 0;
+      }
+    }
+  }
  public static void updatePins(String input) throws InterruptedException {
   int in = input.parseInt();
   if (in / 1000000000 == 1) {
