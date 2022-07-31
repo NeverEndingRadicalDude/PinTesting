@@ -35,7 +35,7 @@ public class LEDtest {
     while (finish == false) {
       try {
       line = input.nextLine();
-      } catch(NoCuchElementException e) {
+      } catch(NoSuchElementException e) {
        finish = false;
        return;
       }
