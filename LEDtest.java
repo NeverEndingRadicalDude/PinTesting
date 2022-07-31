@@ -20,18 +20,7 @@ import com.pi4j.io.gpio.event.PinEventType;
 import java.util.Scanner;
 import java.io.*;
 public class Main {
- final GpioController gpio = GpioFactory.getInstance();
- public static GPIOPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
- public static GPIOPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
- public static GPIOPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);
- public static GPIOPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04);
- public static GPIOPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05);
- public static GPIOPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06);
- public static GPIOPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21);
- public static GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22);
- public static GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_23);
- public static GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24);
- public static void readTxt(String path) throws InterruptedException {
+ public static void readTxt(String path, GPIOPinDigitalOutput pin1, GPIOPinDigitalOutput pin2, GPIOPinDigitalOutput pin3, GPIOPinDigitalOutput pin4, GPIOPinDigitalOutput pin5, GPIOPinDigitalOutput pin6, GPIOPinDigitalOutput pin7, GPIOPinDigitalOutput pin8, GPIOPinDigitalOutput pin9, GPIOPinDigitalOutput pin10) throws InterruptedException {
     int count = 0;
     File file = new File(path);
     Scanner input = new Scanner(file);
@@ -49,7 +38,7 @@ public class Main {
       }
     }
   }
- public static void updatePins(String input) throws InterruptedException {
+ public static void updatePins(String input, GPIOPinDigitalOutput pin1, GPIOPinDigitalOutput pin2, GPIOPinDigitalOutput pin3, GPIOPinDigitalOutput pin4, GPIOPinDigitalOutput pin5, GPIOPinDigitalOutput pin6, GPIOPinDigitalOutput pin7, GPIOPinDigitalOutput pin8, GPIOPinDigitalOutput pin9, GPIOPinDigitalOutput pin10) throws InterruptedException {
   int in = input.parseInt();
   if (in / 1000000000 == 1) {
    pin1.high();
@@ -114,6 +103,17 @@ public class Main {
   
   
  public static void main(String[] args) throws InterruptedException {
+  final GpioController gpio = GpioFactory.getInstance();
+ final GPIOPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+ final GPIOPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+ final GPIOPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);
+ final GPIOPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04);
+ final GPIOPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05);
+ final GPIOPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06);
+ final GPIOPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21);
+ final GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22);
+ final GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_23);
+ final GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24);
   boolean exit = false;
   Scanner scan = new Scanner(System.in);
   while (exit == false) {
@@ -122,8 +122,11 @@ public class Main {
    if (com.compareToIgnoreCase("exit") == 0) {
     exit = true;
    } else {
-    pinChange(com);
-   }
+    try {
+     updatePins(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
+   } catch {
+     readTxt(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
+    }
  }
 }
 }
