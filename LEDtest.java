@@ -127,6 +127,16 @@ public class LEDtest {
    String com = scan.nextLine();
    if (com.compareToIgnoreCase("exit") == 0) {
     exit = true;
+    pin1.low();
+    pin2.low();
+    pin3.low();
+    pin4.low();
+    pin5.low();
+    pin6.low();
+    pin7.low();
+    pin8.low();
+    pin9.low();
+    pin10.low();
    } else {
     try {
      updatePins(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
