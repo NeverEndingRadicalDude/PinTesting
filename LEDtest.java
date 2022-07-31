@@ -31,9 +31,10 @@ public class LEDtest {
      return;
     }
     boolean finish = false;
+    String line;
     while (finish == false) {
       try {
-      String line = input.nextLine();
+      line = input.nextLine();
       } catch(NoSuchElementException e) {
        finish = false;
        return;
