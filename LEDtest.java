@@ -17,11 +17,93 @@ import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import com.pi4j.io.gpio.event.PinEventType;
-
+import java.util.Scanner;
 public class Main {
  final GpioController gpio = GpioFactory.getInstance();
- public static void main(String[] args) {
-  GPIOPinDigitalOutput led = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
-  led.setState(PinState.HIGH);
+ public GPIOPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+ public GPIOPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+ public GPIOPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);
+ public GPIOPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04);
+ public GPIOPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05);
+ public GPIOPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06);
+ public GPIOPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07);
+ public GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08);
+ public GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09);
+ public GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10);
+ public static void updatePins(String input) throws InterruptedException {
+  int in = input.parseInt();
+  if (in / 1000000000 == 1) {
+   pin1.high();
+  } else if (in / 1000000000 == 0) {
+   pin1.low();
+  }
+  in %= 1000000000;
+  if (in / 100000000 == 1) {
+   pin2.high();
+  } else if (in / 100000000 == 0) {
+   pin2.low();
+  }
+  in %= 100000000;
+  if (in / 10000000 == 1) {
+   pin3.high();
+  } else if (in / 10000000 == 0) {
+   pin3.low();
+  }
+  in %= 10000000;
+  if (in / 1000000 == 1) {
+   pin4.high();
+  } else if (in / 1000000 == 0) {
+   pin4.low();
+  }
+  in %= 1000000;
+  if (in / 100000 == 1) {
+   pin5.high();
+  } else if (in / 100000 == 0) {
+   pin5.low();
+  }
+  in %= 100000;
+  if (in / 10000 == 1) {
+   pin6.high();
+  } else if (in / 10000 == 0) {
+   pin6.low();
+  }
+  in %= 10000;
+  if (in / 1000 == 1) {
+   pin7.high();
+  } else if (in / 1000 == 0) {
+   pin7.low();
+  }
+  in %= 1000;
+  if (in / 100 == 1) {
+   pin8.high();
+  } else if (in / 100 == 0) {
+   pin8.low();
+  }
+  in %= 100;
+  if (in / 10 == 1) {
+   pin9.high();
+  } else if (in / 10 == 0) {
+   pin9.low();
+  }
+  in %= 10;
+  if (in / 1 == 1) {
+   pin10.high();
+  } else if (in / 1 == 0) {
+   pin10.low();
+  }
+ }
+  
+  
+ public static void main(String[] args) throws InterruptedException {
+  boolean exit = false;
+  Scanner scan = new Scanner(System.in);
+  while (exit == false) {
+   System.out.println("Command: ");
+   String com = scan.nextLine();
+   if (com.compareToIgnoreCase("exit") == 0) {
+    exit = true;
+   } else {
+    pinChange(com);
+   }
  }
 }
