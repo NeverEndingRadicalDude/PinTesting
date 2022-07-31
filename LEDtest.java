@@ -20,16 +20,16 @@ import com.pi4j.io.gpio.event.PinEventType;
 import java.util.Scanner;
 public class Main {
  final GpioController gpio = GpioFactory.getInstance();
- public GPIOPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
- public GPIOPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
- public GPIOPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);
- public GPIOPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04);
- public GPIOPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05);
- public GPIOPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06);
- public GPIOPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07);
- public GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08);
- public GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09);
- public GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10);
+ public static GPIOPinDigitalOutput pin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+ public static GPIOPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+ public static GPIOPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03);
+ public static GPIOPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04);
+ public static GPIOPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05);
+ public static GPIOPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06);
+ public static GPIOPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21);
+ public static GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22);
+ public static GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_23);
+ public static GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24);
  public static void readTxt(String path) throws InterruptedException {
     int count = 0;
     File file = new File(path);
