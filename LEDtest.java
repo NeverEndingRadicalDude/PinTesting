@@ -32,7 +32,12 @@ public class LEDtest {
     }
     boolean finish = false;
     while (finish == false) {
+      try {
       String line = input.nextLine();
+      } catch(NoLineFound e) {
+       finish == false;
+       return;
+      }
       if (line.compareTo("") == 0) {
         finish = true;
       } else if (count == 0) {
