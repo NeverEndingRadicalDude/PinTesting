@@ -22,14 +22,13 @@ import java.io.*;
 public class LEDtest {
  public static void readTxt(String path, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
     int count = 0;
-    File file;
+    File file = new File(path);
     try {
-      file = new File(path);
+       Scanner input = new Scanner(file);
     } catch(FileNotFoundException e) {
      System.out.println(e.getMessage());
      return;
     }
-    Scanner input = new Scanner(file);
     boolean finish = false;
     while (finish == false) {
       String line = input.nextLine();
