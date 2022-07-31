@@ -24,7 +24,7 @@ public class LEDtest {
     int count = 0;
     File file;
     try {
-      File file = new File(path);
+      file = new File(path);
     } catch(FileNotFoundException e) {
      System.out.println(e.getMessage());
      return;
