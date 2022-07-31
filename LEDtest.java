@@ -30,7 +30,7 @@ public class Main {
  public GPIOPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08);
  public GPIOPinDigitalOutput pin9 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09);
  public GPIOPinDigitalOutput pin10 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10);
- public static readTxt(String path) throws InterruptedException {
+ public static void readTxt(String path) throws InterruptedException {
     int count = 0;
     File file = new File(path);
     Scanner input = new Scanner(file);
