@@ -33,7 +33,7 @@ public class LEDtest {
     }
     boolean finish = false;
     String line;
-    int time;
+    int time = 0;
     while (finish == false) {
       boolean check2 = false;
       try {
