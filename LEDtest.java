@@ -35,7 +35,7 @@ public class LEDtest {
       try {
       String line = input.nextLine();
       } catch(NoLineFound e) {
-       finish == false;
+       finish = false;
        return;
       }
       if (line.compareTo("") == 0) {
