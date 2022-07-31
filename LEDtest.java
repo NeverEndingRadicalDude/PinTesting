@@ -127,6 +127,7 @@ public class Main {
    } catch(InteruptedException) {
      readTxt(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
     }
+   }
  }
 }
 }
