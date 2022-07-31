@@ -37,14 +37,19 @@ public class LEDtest {
     while (finish == false) {
       boolean check2 = false;
       try {
-      line = input.nextLine();
+      line = input.nextInt();
       } catch(NoSuchElementException e) {
        finish = false;
+       return;
+      } catch(NumberFormatException e) {
+       finish = true;
        return;
       }
       try {
       time = input.nextInt();
       } catch(NoSuchElementException e) {
+       check2 = true;
+      } catch(NumberFormatException e) {
        check2 = true;
       }
       long start = System.nanoTime();
