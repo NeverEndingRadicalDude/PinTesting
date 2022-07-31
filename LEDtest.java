@@ -30,10 +30,10 @@ public class LEDtest {
       if (line.compareTo("") == 0) {
         finish = true;
       } else if (count == 0) {
-        Main.updatePins(line.parseInt());
+        Main.updatePins(Integer.parseInt(line));
         count = 1;
       } else if (count == 1) {
-        Thread.sleep(line.parseInt());
+        Thread.sleep(Integer.parseInt(line));
         count = 0;
       }
     }
