@@ -38,9 +38,7 @@ public class LEDtest {
        finish = false;
        return;
       }
-      if (line.compareTo("") == 0) {
-        finish = true;
-      } else if (count == 0) {
+      if (count == 0) {
         updatePins(line, pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
         count = 1;
       } else if (count == 1) {
