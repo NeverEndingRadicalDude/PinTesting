@@ -44,8 +44,6 @@ public class LEDtest {
       try {
       time = input.nextInt();
       } catch(NoSuchElementException e) {
-       finish = false;
-       return;
       }
       long start = System.nanoTime();
       updatePins(line, pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
