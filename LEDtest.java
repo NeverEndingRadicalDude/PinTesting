@@ -26,6 +26,7 @@ public class LEDtest {
       File file = new File(path);
     } catch(FileNotFoundException e) {
      System.out.println(e.getMessage());
+     return;
     }
     Scanner input = new Scanner(file);
     boolean finish = false;
