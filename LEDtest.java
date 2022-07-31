@@ -45,22 +45,8 @@ public class LEDtest {
        finish = true;
        return;
       }
-      try {
-      time = input.nextInt();
-      } catch(NoSuchElementException e) {
-       check2 = true;
-      } catch(NumberFormatException e) {
-       check2 = true;
-      }
-      long start = System.nanoTime();
       updatePins(("" + line), pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
-      boolean check = false;
-      while (check = false) {
-       if (!check2 && System.nanoTime() - start >= time) {
-        check = true;
-       }
-      }
-     updatePins("0000000000", pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
+      updatePins("0000000000", pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
     }
   }
  public static void updatePins(String input, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
