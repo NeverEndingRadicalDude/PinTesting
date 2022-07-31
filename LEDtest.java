@@ -35,6 +35,7 @@ public class LEDtest {
     String line;
     int time;
     while (finish == false) {
+      boolean check2 = false;
       try {
       line = input.nextLine();
       } catch(NoSuchElementException e) {
@@ -44,12 +45,13 @@ public class LEDtest {
       try {
       time = input.nextInt();
       } catch(NoSuchElementException e) {
+       check2 = true;
       }
       long start = System.nanoTime();
       updatePins(line, pin1, pin2, pin3, pin4, pin5, pin6, pin7 ,pin8 ,pin9, pin10);
       boolean check = false;
       while (check = false) {
-       if (System.nanoTime() - start >= time) {
+       if (!check2 && System.nanoTime() - start >= time) {
         check = true;
         updatePins("0000000000", pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
        }
