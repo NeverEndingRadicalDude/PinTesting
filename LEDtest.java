@@ -39,7 +39,7 @@ public class LEDtest {
     }
   }
  public static void updatePins(String input, GpioPinDigitalOutput pin1, GpioPinDigitalOutput pin2, GpioPinDigitalOutput pin3, GpioPinDigitalOutput pin4, GpioPinDigitalOutput pin5, GpioPinDigitalOutput pin6, GpioPinDigitalOutput pin7, GpioPinDigitalOutput pin8, GpioPinDigitalOutput pin9, GpioPinDigitalOutput pin10) throws InterruptedException {
-  int in = input.parseInt();
+  int in = Integer.parseInt(input);
   if (in / 1000000000 == 1) {
    pin1.high();
   } else if (in / 1000000000 == 0) {
@@ -124,7 +124,7 @@ public class LEDtest {
    } else {
     try {
      updatePins(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
-   } catch(InteruptedException e) {
+   } catch(InterruptedException) {
      readTxt(com, pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10);
     }
    }
